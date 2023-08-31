@@ -1,0 +1,26 @@
+name: Publish image
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  publish-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+      - uses: actions/checkout@v3
+      - uses: ko-build/setup-ko@2788447382c56bf12a5122143c63f3a70c591634
+        with:
+          version: v0.14.1
+      - run: ko build --platform=all --bare --sbom=none --tags=latest --tags=${{ github.ref_name }}
