@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
@@ -25,7 +26,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "azure-storage-acl-sync"
 	app.Usage = "Synchronize Azure storage account IP ACL with Azure service IPs"
-	app.Version = version
+	app.Version = strings.TrimSpace(version)
 	app.EnableBashCompletion = true
 
 	app.Flags = flags()
