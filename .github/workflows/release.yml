@@ -24,4 +24,4 @@ jobs:
       with:
         version: v0.18.0
     - name: Build and push image
-      run: ko build --bare --tags=latest --tags=${{ github.ref_name }} --tag-only --sbom=cyclonedx
+      run: ko build --bare --tags=${{ github.ref_name }} --tag-only --sbom=cyclonedx
