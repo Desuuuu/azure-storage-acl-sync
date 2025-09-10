@@ -57,8 +57,6 @@ func Run(ctx context.Context, config Config) error {
 	allow := "Allow"
 
 	for _, rule := range config.ExtraAllowRules {
-		rule := rule
-
 		rules = append(rules, &armstorage.IPRule{
 			IPAddressOrRange: &rule,
 			Action:           &allow,
@@ -68,8 +66,6 @@ func Run(ctx context.Context, config Config) error {
 	deny := "Deny"
 
 	for _, rule := range config.ExtraDenyRules {
-		rule := rule
-
 		rules = append(rules, &armstorage.IPRule{
 			IPAddressOrRange: &rule,
 			Action:           &deny,
