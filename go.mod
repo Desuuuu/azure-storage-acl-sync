@@ -1,6 +1,6 @@
 module github.com/Desuuuu/azure-storage-acl-sync
 
-go 1.19
+go 1.23.0
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.8.0-beta.2
